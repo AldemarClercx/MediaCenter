@@ -6,7 +6,6 @@ import re
 import shutil
 
 ## Variables fixes
-Path = "D:/Telechargements/Test"
 PathMovies = "D:/Telechargements/Test/A_traiter/Movies"
 PathMoviesOk = "D:/Telechargements/Test/Pret_a_regarder/Movies"
 
@@ -32,4 +31,10 @@ def RenameMovies():
                         NewName = FolderName+file_extension ## Variable pour le renommage (Nouveau nom)    
                         shutil.move(FullPath+'/'+OldName, PathMoviesOk+'/'+NewName)
                         print ("Le film " + OldName + " est renommé en " + NewName)
-                shutil.rmtree(FullPath)      
+                        shutil.rmtree(FullPath)     
+
+def RenameMoviesOK():
+    print ("\n\n-----")
+    print ("Voici la liste des films déplacés :\n")
+    for EachFolderMoviesOk in os.listdir(PathMoviesOk):
+        print (EachFolderMoviesOk) 
