@@ -12,7 +12,7 @@ Now = datetime.datetime.now()
 TimeStamp = str(Now.strftime("%Y%m%d_%H%M%S"))
 PathSeries = "D:/Telechargements/A_traiter/Series"
 PathSeriesOk = "D:/Telechargements/Pret_a_regarder/Series"
-LogFile = logging.basicConfig(format='%(asctime)s %(message)s', datefmt="%d-%m-%Y %I:%M:%S %p", filename="D:/Projets/Recette/Logs/MediaCenter/FinalRename_"+TimeStamp+".log", level=logging.INFO)
+LogFile = logging.basicConfig(format='%(asctime)s %(message)s', datefmt="%d-%m-%Y %I:%M:%S %p", filename="D:/Projets/Production/Logs/MediaCenter/FinalRename_"+TimeStamp+".log", level=logging.INFO)
 
 def ListSeries():
     LogFile
@@ -45,7 +45,15 @@ def RenameSeries():
                     NewName = FolderName+NumEpisode+file_extension ## Variable pour le renommage (Nouveau nom)    
                     shutil.move(FullPath+'/'+OldName, FullPath+'/'+NewName)
                     logging.info("L'épisode de la séries " + OldName + " est renommé en " + NewName)
-            shutil.move(FullPath, PathSeriesOk)
+
+            ## Condition si le dossier de la série existe déjà en destination
+            if os.path.isdir(PathSeriesOk+'/'+FolderName)==True:
+                for RenameFiles in os.listdir(FullPath):
+                    shutil.move(FullPath+'/'+RenameFiles, PathSeriesOk+'/'+FolderName)
+                shutil.rmtree(FullPath)
+            else:
+                shutil.move(FullPath, PathSeriesOk)
+                
 
 def RenameSeriesOK():
     LogFile
