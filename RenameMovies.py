@@ -11,7 +11,7 @@ Now = datetime.datetime.now()
 TimeStamp = str(Now.strftime("%Y%m%d_%H%M%S"))
 PathMovies = "D:/Telechargements/A_traiter/Movies"
 PathMoviesOk = "D:/Telechargements/Pret_a_regarder/Movies"
-LogFile = logging.basicConfig(format='%(asctime)s %(message)s', datefmt="%d-%m-%Y %I:%M:%S %p", filename="D:/Projets/Recette/Logs/MediaCenter/FinalRename_"+TimeStamp+".log", level=logging.INFO)
+LogFile = logging.basicConfig(format='%(asctime)s %(message)s', datefmt="%d-%m-%Y %I:%M:%S %p", filename="D:/Projets/Production/Logs/MediaCenter/FinalRename_"+TimeStamp+".log", level=logging.INFO)
 
 def ListMovies():
     LogFile

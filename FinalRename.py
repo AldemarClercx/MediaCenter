@@ -12,7 +12,7 @@ Now = datetime.datetime.now()
 TimeStamp = str(Now.strftime("%Y%m%d_%H%M%S"))
 PathSeries = "D:/Telechargements/A_traiter/Series"
 PathMovies = "D:/Telechargements/A_traiter/Movies"
-LogFile = logging.basicConfig(format='%(asctime)s %(message)s', datefmt="%d-%m-%Y %I:%M:%S %p", filename="D:/Projets/Recette/Logs/MediaCenter/FinalRename_"+TimeStamp+".log", level=logging.info)
+LogFile = logging.basicConfig(format='%(asctime)s %(message)s', datefmt="%d-%m-%Y %I:%M:%S %p", filename="D:/Projets/Prodcution/Logs/MediaCenter/FinalRename_"+TimeStamp+".log", level=logging.info)
 
 if len(os.listdir(PathSeries)) > 0:
     LogFile
